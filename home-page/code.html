@@ -1,0 +1,963 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Underground. — Connect. Build. Ascend.</title>
+<!-- Load Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans and Space Grotesk -->
+<link href="https://fonts.preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          },
+          colors: {
+            mediterranean: {
+              citrus: '#FFA62B',
+              seabreeze: '#86C5FF',
+              amalfi: '#2E5AA7',
+              cream: '#F8E6A0',
+              navy: '#0F1E38',
+              slate: '#4A5D78',
+              muted: '#60728D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Atmospheric Styling & Entrance Animations (Mediterranean Citrus Light Mode) -->
+<style data-purpose="ambient-glow-layers">
+    /* Radiant Mediterranean Sun & Sea horizon dome against crisp light canvas */
+    .glowing-dome-container {
+      position: absolute;
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1400px;
+      height: 950px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    /* Outer gleaming radiant rim with Amalfi & golden Citrus light */
+    .rim-light {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1200px;
+      height: 750px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      border-top: 14px solid rgba(255, 166, 43, 0.7);
+      filter: blur(8px);
+      box-shadow: 
+        0 -15px 35px rgba(255, 166, 43, 0.5),
+        0 -30px 70px rgba(134, 197, 255, 0.65),
+        0 -50px 110px rgba(46, 90, 167, 0.45);
+      opacity: 0.9;
+    }
+
+    /* Secondary vibrant Mediterranean arch core (Amalfi Tile into Sea Breeze & Cream) */
+    .mediterranean-core-arch {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1140px;
+      height: 700px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      background: radial-gradient(
+        ellipse at 50% 12%,
+        rgba(134, 197, 255, 0.65) 0%,
+        rgba(46, 90, 167, 0.45) 28%,
+        rgba(248, 230, 160, 0.35) 55%,
+        rgba(251, 251, 254, 0) 80%
+      );
+      filter: blur(40px);
+    }
+
+    /* Ambient warm Citrus & Sea Breeze outer expansion glow */
+    .outer-citrus-glow {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1350px;
+      height: 820px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(255, 166, 43, 0.28) 0%,
+        rgba(134, 197, 255, 0.22) 42%,
+        rgba(251, 251, 254, 0) 75%
+      );
+      filter: blur(65px);
+    }
+
+    /* Soft light interior mask keeping text crisp and legible */
+    .dome-center-mask {
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 820px;
+      height: 480px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.85) 0%, rgba(251, 251, 254, 0) 75%);
+      filter: blur(40px);
+    }
+
+    /* Subtle Mediterranean Sea Breeze backdrop aura for events section */
+    .events-aura-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1100px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(134, 197, 255, 0.25) 0%, rgba(248, 230, 160, 0.18) 45%, rgba(251, 251, 254, 0) 72%);
+      filter: blur(75px);
+      pointer-events: none;
+    }
+  </style>
+<style data-purpose="glass-card-and-animations">
+    /* High-fidelity ceramic frosted glass card */
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      box-shadow: 0 16px 40px -12px rgba(15, 30, 56, 0.08), 0 1px 3px rgba(15, 30, 56, 0.04);
+    }
+
+    .button-glow-amalfi {
+      box-shadow: 0 4px 18px rgba(46, 90, 167, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+    .button-glow-amalfi:hover {
+      box-shadow: 0 6px 24px rgba(46, 90, 167, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .button-glow-citrus {
+      box-shadow: 0 4px 20px rgba(255, 166, 43, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+    .button-glow-citrus:hover {
+      box-shadow: 0 6px 26px rgba(255, 166, 43, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Fade-in slide-up animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Full-width edge-to-edge interactive brand section */
+    .interactive-brand-section {
+      position: relative;
+    }
+
+    /* Smooth Orbital Keyframes along Arc Trajectories with Upright Counter-Rotation */
+    @keyframes orbitOuter {
+      from {
+        transform: translate(-50%, 50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, 50%) rotate(360deg);
+      }
+    }
+
+    @keyframes orbitInner {
+      from {
+        transform: translate(-50%, 50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, 50%) rotate(-360deg);
+      }
+    }
+
+    @keyframes counterRotateOuter {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(-360deg);
+      }
+    }
+
+    @keyframes counterRotateInner {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .orbit-track-outer {
+      animation: orbitOuter 46s linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .orbit-track-inner {
+      animation: orbitInner 34s linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .orbit-node-outer {
+      position: absolute;
+      animation: counterRotateOuter 46s linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .orbit-node-inner {
+      position: absolute;
+      animation: counterRotateInner 34s linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .orbit-track-outer:hover,
+    .orbit-track-inner:hover,
+    .orbit-track-outer:hover .orbit-node-outer,
+    .orbit-track-inner:hover .orbit-node-inner {
+      animation-play-state: paused;
+    }
+  </style>
+<!-- END: Custom Atmospheric Styling & Entrance Animations -->
+</head>
+<body class="text-[#0F1E38] min-h-screen relative flex flex-col justify-between overflow-x-hidden selection:bg-[#FFA62B] selection:text-white antialiased bg-white">
+<svg aria-hidden="true" class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<!-- BEGIN: Ambient Arch Background (Mediterranean Citrus Light Mode) -->
+<!-- END: Ambient Arch Background -->
+<!-- BEGIN: Top Sticky Navigation Bar -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-slate-200/80 transition-all duration-300 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-1 group animate-fade-in-up" href="#" style="animation-delay: 50ms;">
+<span class="text-2xl font-extrabold tracking-tight text-[#0F1E38] group-hover:text-[#2E5AA7] transition-colors">
+        Underground<span class="text-[#FFA62B] font-black text-3xl leading-none">.</span>
+</span>
+</a>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center space-x-9 text-sm font-semibold text-[#334460] animate-fade-in-up" data-purpose="main-navigation" style="animation-delay: 100ms;">
+<a class="hover:text-[#2E5AA7] transition-colors duration-200" href="#community">Community</a>
+<a class="hover:text-[#2E5AA7] transition-colors duration-200" href="#events">Events</a>
+<a class="hover:text-[#2E5AA7] transition-colors duration-200" href="#about">About</a>
+</nav>
+<!-- Right Header CTA Button -->
+<div class="flex items-center space-x-3.5 animate-fade-in-up" data-purpose="auth-cta-group" style="animation-delay: 150ms;">
+<a class="text-xs tracking-wider uppercase font-bold text-white px-5 py-2.5 rounded-lg bg-[#2E5AA7] hover:bg-[#234887] transition-all duration-200 button-glow-amalfi border border-blue-400/30 hover:scale-[1.02]" href="#join">
+        Join Community
+      </a>
+</div>
+</div>
+</header>
+<!-- END: Top Sticky Navigation Bar -->
+<!-- BEGIN: Hero Content Section -->
+<main class="relative z-20 flex flex-col items-center justify-center text-center px-6 pb-12 max-w-5xl mx-auto" style="padding-top: 150px;">
+<!-- Mediterranean Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8E6A0]/45 border border-[#FFA62B]/30 text-xs font-bold uppercase tracking-wider text-[#9E5F00] mb-6 animate-fade-in-up" style="animation-delay: 150ms;">
+<span class="w-2 h-2 rounded-full bg-[#FFA62B] animate-pulse"></span>
+  Sovereign Builder Collective
+</div>
+<!-- Main Headline with deep rich navy and Mediterranean Citrus gradient accent -->
+<h1 class="text-4xl sm:text-5xl md:text-[68px] font-extrabold tracking-tight text-[#0F1E38] leading-[1.08] max-w-4xl drop-shadow-sm animate-fade-in-up" style="animation-delay: 200ms;">
+    Innovating Tomorrow.<br class="hidden sm:inline">
+<span class="bg-gradient-to-r from-[#2E5AA7] via-[#1F6FD9] to-[#FFA62B] bg-clip-text text-transparent">Building Today.</span>
+</h1>
+<!-- Explanatory Subtitle -->
+<p class="mt-7 text-sm sm:text-base md:text-lg text-[#4A5D78] max-w-2xl font-normal leading-relaxed text-balance animate-fade-in-up" style="animation-delay: 300ms;">
+    Empowering the next generation of builders, hackers, and visionaries. Explore exclusive community initiatives, private events, and collaborative ventures.
+  </p>
+<!-- Dual Action Buttons -->
+<div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto animate-fade-in-up" data-purpose="hero-actions" style="animation-delay: 400ms;">
+<a class="w-full sm:w-auto px-7 py-3 rounded-lg text-xs md:text-sm font-semibold text-white bg-[#2E5AA7] hover:bg-[#234887] button-glow-amalfi transition-all duration-300 tracking-wide text-center shadow-md" href="#community">
+      Explore Community
+    </a>
+<a class="w-full sm:w-auto px-7 py-3 rounded-lg text-xs md:text-sm font-semibold text-[#0F1E38] bg-white/90 hover:bg-[#F8E6A0]/25 border border-slate-300 hover:border-[#FFA62B]/60 transition-all duration-300 backdrop-blur-md tracking-wide text-center shadow-sm" href="#events">
+      Upcoming Events
+    </a>
+</div>
+</main>
+<!-- END: Hero Content Section -->
+<!-- BEGIN: Bottom Metrics & Trust Counter Section -->
+<section class="relative z-30 w-full max-w-5xl mx-auto px-6 pb-16 animate-fade-in-up" style="animation-delay: 500ms; margin-bottom: 96px;">
+<div class="glass-card-light rounded-2xl p-6 md:px-10 md:py-6 flex flex-col md:flex-row items-center justify-between gap-6" data-purpose="bottom-metrics-card">
+<!-- Left Metric: 5 stars & 1.5k members in underground -->
+<div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
+<div class="flex flex-col text-left">
+<!-- 5 Golden Citrus Stars Indicator -->
+<div class="flex items-center gap-1 mb-1.5">
+<svg class="w-4 h-4 text-[#FFA62B] fill-[#FFA62B]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-4 h-4 text-[#FFA62B] fill-[#FFA62B]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-4 h-4 text-[#FFA62B] fill-[#FFA62B]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-4 h-4 text-[#FFA62B] fill-[#FFA62B]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-4 h-4 text-[#FFA62B] fill-[#FFA62B]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+<p class="text-xs text-[#60728D] font-medium tracking-wide">
+          Rated <span class="text-[#0F1E38] font-semibold">4.9/5</span> by <span class="text-[#0F1E38] font-bold">1,200+ members in underground</span>
+</p>
+</div>
+</div>
+<!-- Vertical Divider -->
+<div class="h-10 w-[1px] bg-slate-200 hidden md:block"></div>
+<!-- Right Highlighted Stat Block: 15k+ Elite Coder Members -->
+<div class="flex items-center gap-4 md:justify-end w-full md:w-auto justify-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#86C5FF]/20 border border-[#86C5FF]/60 flex items-center justify-center shadow-sm">
+<svg class="w-5 h-5 text-[#2E5AA7]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polyline points="16 18 22 12 16 6"></polyline>
+<polyline points="8 6 2 12 8 18"></polyline>
+</svg>
+</div>
+<div class="text-left">
+<div class="text-2xl font-black text-[#0F1E38] tracking-tight flex items-center gap-1.5">
+<span class="bg-gradient-to-r from-[#2E5AA7] to-[#0F1E38] bg-clip-text text-transparent">15k+</span>
+<span class="text-xs uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#FFA62B]/15 border border-[#FFA62B]/35 text-[#B86B00] font-bold">Elite</span>
+</div>
+<div class="text-xs text-[#60728D] font-medium tracking-wide">Elite Coder Members Worldwide</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Bottom Metrics & Trust Counter Section -->
+<!-- BEGIN: Events Section (Mediterranean Citrus Light Mode) -->
+<section class="relative z-30 w-full max-w-7xl mx-auto px-6 py-12" id="events" style="margin-top: 40px; padding-top: 60px; padding-bottom: 60px;">
+<!-- Mediterranean Sea Breeze Backdrop Aura -->
+<div class="events-aura-glow"></div>
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-12 relative animate-fade-in-up" style="animation-delay: 600ms;">
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F1E38] leading-tight">
+  Next-Gen Hackathons &amp; <span class="bg-gradient-to-r from-[#2E5AA7] to-[#FFA62B] bg-clip-text text-transparent">Tech Summits.</span>
+</h2>
+<p class="mt-4 text-sm sm:text-base text-[#4A5D78] font-normal leading-relaxed text-balance">Explore high-impact builder sprints, deep-dive technical workshops, and global engineering gatherings.</p>
+<!-- Filter / Segmented Selector (Light Mode) -->
+<div class="mt-8 inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-sm backdrop-blur-md">
+<button class="px-5 py-2 rounded-lg text-xs font-bold tracking-wide uppercase transition-all duration-200 bg-[#2E5AA7] text-white shadow-sm">
+        All Events
+      </button>
+<button class="px-5 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase text-[#60728D] hover:text-[#0F1E38] transition-all duration-200">
+        Ongoing Events
+      </button>
+<button class="px-5 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase text-[#60728D] hover:text-[#0F1E38] transition-all duration-200">
+        Upcoming Events
+      </button>
+</div>
+</div>
+<!-- 6-Card Grid (2 rows of 3) Mediterranean Light Aesthetic -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+<!-- Card 1 -->
+<div class="group relative rounded-2xl p-6 bg-white border border-slate-200 hover:border-[#86C5FF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-sm animate-fade-in-up" style="animation-delay: 650ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#86C5FF]/20 border border-[#86C5FF]/40 flex items-center justify-center text-[#2E5AA7]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polyline points="16 18 22 12 16 6"></polyline>
+<polyline points="8 6 2 12 8 18"></polyline>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-700 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> LIVE NOW
+          </span>
+<a class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#60728D] group-hover:text-[#2E5AA7] group-hover:border-[#86C5FF] transition-colors" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-[#0F1E38] mb-2 group-hover:text-[#2E5AA7] transition-colors">
+        Global Web3 &amp; AI Hackathon
+      </h3>
+<p class="text-xs sm:text-sm text-[#5B6B82] leading-relaxed font-normal">
+        Build high-concurrency smart contract infra and autonomous machine learning workflows with 600+ teams.
+      </p>
+</div>
+<!-- Card 2 (FEATURED CARD: Vibrant Amalfi Tile & Citrus Accent Card) -->
+<div class="group relative rounded-2xl p-6 bg-gradient-to-br from-[#2E5AA7] to-[#1E4380] border border-[#86C5FF]/40 text-white transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl animate-fade-in-up" style="animation-delay: 700ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#FFA62B] text-white flex items-center justify-center shadow-md">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="14" rx="2" width="20" x="2" y="3"></rect>
+<line x1="8" x2="16" y1="21" y2="21"></line>
+<line x1="12" x2="12" y1="17" y2="21"></line>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FFA62B] text-[#4A2600] font-black">
+            FEATURED
+          </span>
+<a class="w-8 h-8 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#2E5AA7] transition-all" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-2">
+        AI &amp; Machine Learning Intensive
+      </h3>
+<p class="text-xs sm:text-sm text-blue-100 leading-relaxed font-normal">
+        Deep dive into transformer architectures, tensor parallelism, and local model inference for scale.
+      </p>
+</div>
+<!-- Card 3 -->
+<div class="group relative rounded-2xl p-6 bg-white border border-slate-200 hover:border-[#86C5FF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-sm animate-fade-in-up" style="animation-delay: 750ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#F8E6A0]/50 border border-[#F8E6A0] flex items-center justify-center text-[#2E5AA7]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[#2E5AA7]">
+            OCT 28
+          </span>
+<a class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#60728D] group-hover:text-[#2E5AA7] group-hover:border-[#86C5FF] transition-colors" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-[#0F1E38] mb-2 group-hover:text-[#2E5AA7] transition-colors">
+        System Design &amp; Distributed Systems
+      </h3>
+<p class="text-xs sm:text-sm text-[#5B6B82] leading-relaxed font-normal">
+        Fault-tolerant consensus, Raft implementations, and multi-region replication architectures hands-on.
+      </p>
+</div>
+<!-- Card 4 -->
+<div class="group relative rounded-2xl p-6 bg-white border border-slate-200 hover:border-[#86C5FF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-sm animate-fade-in-up" style="animation-delay: 800ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#86C5FF]/20 border border-[#86C5FF]/40 flex items-center justify-center text-[#2E5AA7]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#FFA62B]/10 border border-[#FFA62B]/30 text-[#B86B00]">
+            NOV 04
+          </span>
+<a class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#60728D] group-hover:text-[#2E5AA7] group-hover:border-[#86C5FF] transition-colors" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-[#0F1E38] mb-2 group-hover:text-[#2E5AA7] transition-colors">
+        Zero-Knowledge &amp; Cryptography Sprint
+      </h3>
+<p class="text-xs sm:text-sm text-[#5B6B82] leading-relaxed font-normal">
+        Build privacy-first zero-knowledge circuits, SNARK provers, and verifiers for verifiable computation.
+      </p>
+</div>
+<!-- Card 5 -->
+<div class="group relative rounded-2xl p-6 bg-white border border-slate-200 hover:border-[#86C5FF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-sm animate-fade-in-up" style="animation-delay: 850ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#F8E6A0]/50 border border-[#F8E6A0] flex items-center justify-center text-[#2E5AA7]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[#2E5AA7]">
+            NOV 12
+          </span>
+<a class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#60728D] group-hover:text-[#2E5AA7] group-hover:border-[#86C5FF] transition-colors" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-[#0F1E38] mb-2 group-hover:text-[#2E5AA7] transition-colors">
+        Next-Gen Cloud Architecture
+      </h3>
+<p class="text-xs sm:text-sm text-[#5B6B82] leading-relaxed font-normal">
+        Future-proof your infrastructure with microVM orchestration, edge deployments, and instant cold-starts.
+      </p>
+</div>
+<!-- Card 6 -->
+<div class="group relative rounded-2xl p-6 bg-white border border-slate-200 hover:border-[#86C5FF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-sm animate-fade-in-up" style="animation-delay: 900ms;">
+<div class="flex items-start justify-between mb-5">
+<div class="w-11 h-11 rounded-xl bg-[#86C5FF]/20 border border-[#86C5FF]/40 flex items-center justify-center text-[#2E5AA7]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#FFA62B]/10 border border-[#FFA62B]/30 text-[#B86B00]">
+            NOV 20
+          </span>
+<a class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#60728D] group-hover:text-[#2E5AA7] group-hover:border-[#86C5FF] transition-colors" href="#">
+            ↗
+          </a>
+</div>
+</div>
+<h3 class="text-lg font-bold text-[#0F1E38] mb-2 group-hover:text-[#2E5AA7] transition-colors">
+        High-Performance Rust Workshop
+      </h3>
+<p class="text-xs sm:text-sm text-[#5B6B82] leading-relaxed font-normal">
+        Lock-free data structures, SIMD acceleration, and low-latency networking modules crafted in pure Rust.
+      </p>
+</div>
+</div>
+</section>
+<!-- END: Events Section -->
+<!-- BEGIN: Massive Full-Width Typographic Brand Section (Interactive SVG text in Mediterranean Citrus) -->
+<section class="interactive-brand-section relative z-30 w-full overflow-hidden my-6 py-6 md:py-8 border-t border-b border-slate-200 bg-white" data-purpose="massive-brand-typography" id="community">
+<!-- Full-Width Edge-to-Edge Typography Canvas with 100% width and clean slate-blue stroke -->
+<div class="w-full relative flex items-center justify-center select-none overflow-hidden p-0 m-0">
+<div class="relative w-full text-center flex items-center justify-center cursor-default p-0 m-0">
+<svg class="w-full h-auto min-h-[260px] md:min-h-[340px] block select-none pointer-events-auto bg-transparent" id="underground-svg" preserveAspectRatio="none" viewBox="0 0 1600 400">
+<defs>
+<!-- Vibrant gradient for cursor stroke, capped strictly at 50% opacity -->
+<linearGradient id="vibrantStrokeGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#2563EB" stop-opacity="0.5"></stop>
+<stop offset="35%" stop-color="#7C3AED" stop-opacity="0.5"></stop>
+<stop offset="70%" stop-color="#0284C7" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#EA580C" stop-opacity="0.5"></stop>
+</linearGradient>
+<!-- Soft radial falloff for spotlight mask revealing only characters directly under pointer -->
+<radialGradient cx="-3000" cy="-3000" gradientUnits="userSpaceOnUse" id="maskRadialAlpha" r="230">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+<stop offset="65%" stop-color="#ffffff" stop-opacity="0.75"></stop>
+<stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+</radialGradient>
+<mask id="cursorStrokeMask">
+<rect fill="black" height="400" width="1600" x="0" y="0"></rect>
+<circle cx="-3000" cy="-3000" fill="url(#maskRadialAlpha)" id="maskCursorHole" r="230"></circle>
+</mask>
+</defs>
+<!-- Base unhovered/outside characters: faded outlines (opacity ~0.18), fill completely transparent -->
+<text dominant-baseline="middle" fill="none" font-family="'Plus Jakarta Sans', sans-serif" font-size="340" font-weight="800" id="underground-base-text" lengthAdjust="spacingAndGlyphs" letter-spacing="-0.035em" opacity="0.18" stroke="#64748B" stroke-linejoin="round" stroke-width="2.5" text-anchor="middle" textLength="1600" x="50%" y="54%">underground</text>
+<!-- Illuminated character stroke under cursor spotlight: fill is NONE, stroke opacity capped strictly at 50%, no background wash -->
+<text dominant-baseline="middle" fill="none" font-family="'Plus Jakarta Sans', sans-serif" font-size="340" font-weight="800" id="underground-single-text" lengthAdjust="spacingAndGlyphs" letter-spacing="-0.035em" mask="url(#cursorStrokeMask)" opacity="0" stroke="url(#vibrantStrokeGradient)" stroke-linejoin="round" stroke-width="3.5" style="pointer-events:none; transition: opacity 0.25s ease-out;" text-anchor="middle" textLength="1600" x="50%" y="54%">underground</text>
+</svg>
+</div>
+</div>
+</section>
+<!-- BEGIN: Our Network Section with Orbital Arc Trajectories (Developer Pivot & Full Smooth Continuous Rotation) -->
+<section class="relative w-full overflow-hidden bg-white py-16 md:py-24 select-none" id="our-network">
+<div class="max-w-6xl mx-auto px-6 relative flex flex-col items-center">
+<!-- Dual Concentric Curved Arcs Container with Floating Orbiting Elements -->
+<div class="relative w-full max-w-4xl h-[360px] sm:h-[420px] md:h-[460px] flex items-end justify-center overflow-visible"><!-- Dedicated Masked Container STRICTLY for Orbital Arcs and Rotating Nodes -->
+<div class="absolute inset-0 pointer-events-none overflow-visible" style="mask-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0.15) 80%, rgba(0, 0, 0, 0) 100%);">
+<!-- Static SVG Curved Arc Trajectories with Distinct Subtle Guidelines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-0" preserveAspectRatio="none" viewBox="0 0 900 460">
+<!-- Outer Circular Arc -->
+<path d="M 50 460 A 400 400 0 0 1 850 460" fill="none" stroke="#CBD5E1" stroke-dasharray="5 5" stroke-width="1.75"></path>
+<!-- Inner Circular Arc -->
+<path d="M 170 460 A 280 280 0 0 1 730 460" fill="none" stroke="#E2E8F0" stroke-width="1.75"></path>
+</svg>
+<!-- ORBIT TRACK OUTER: 800px diameter circle, centered at bottom (left: 50%, bottom: 0), continuous 360-deg rotation with distinct dashed outline -->
+<div class="absolute left-1/2 bottom-0 w-[800px] h-[800px] rounded-full pointer-events-none z-20 orbit-track-outer border border-dashed border-slate-300/60">
+<!-- Outer Node 1: PR Merged & Deployed badge (~200deg) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * -0.927); top: calc(50% + 400px * -0.375);">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8F5E9] border border-[#C8E6C9] text-[#1B5E20] text-xs font-semibold shadow-sm hover:scale-105 cursor-pointer whitespace-nowrap bg-white/95 backdrop-blur-sm transition">
+<span class="w-4 h-4 rounded-full bg-[#2E7D32] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
+<span class="">PR Merged &amp; Deployed</span>
+</div>
+</div>
+<!-- Outer Node 2: Dev Rocket Reaction (~235deg) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * -0.573); top: calc(50% + 400px * -0.819);">
+<div class="flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl px-2.5 py-1 shadow-sm hover:scale-105 cursor-pointer transition backdrop-blur-sm">
+<span class="text-sm">🚀</span>
+<span class="text-[11px] font-bold text-slate-600">24</span>
+</div>
+</div>
+<!-- Outer Node 3: 12 Commits Pushed (270deg - Top Center) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * 0); top: calc(50% + 400px * -1);">
+<div class="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-1.5 rounded-full shadow-sm text-xs font-semibold text-slate-700 hover:scale-105 cursor-pointer whitespace-nowrap transition backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[#2E5AA7] font-bold">⚡ 12 Commits Pushed</span>
+</div>
+</div>
+<!-- Outer Node 4: Heart Reaction (at ~305deg) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * 0.573); top: calc(50% + 400px * -0.819);">
+<div class="flex items-center gap-1.5 bg-white border border-slate-200/90 px-2.5 py-1 rounded-full shadow-sm text-xs font-medium text-slate-700 hover:scale-105 cursor-pointer transition backdrop-blur-sm">
+<span class="">❤️</span>
+<span class="text-slate-600 font-semibold text-[11px]">12</span>
+</div>
+</div>
+<!-- Outer Node 5: Senior Engineer Avatar (at ~335deg) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * 0.891); top: calc(50% + 400px * -0.454);">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full ring-4 ring-white shadow-md overflow-hidden bg-slate-100 hover:scale-110 cursor-pointer transition border border-slate-200">
+<img alt="Senior Engineer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSZUto_kRUC9tvROUXwOfdV155frJqsYAyqWkikrhEQlhNThAZrk09zV2E_2svZzsKT_mC0ojlw5Bwdip0SrPS9OivgjNhI_eIp_uHPD7nhF3zhGL7YoujePNhafzHn-glDqbdJTB5S-S4wOVDBUP5cNItY-iIr64FcIWsTYJp4CKDKOjfTuV8PXXdIG1zF51jcp9hxBWaAeTRDTAeeIzeK5pPKvzt9ZZXyLb3uhtZzhHsJyefTIxuXQ">
+</div>
+</div>
+<!-- Outer Node 6: Code Review Comments (~355deg) -->
+<div class="orbit-node-outer pointer-events-auto" style="left: calc(50% + 400px * 0.996); top: calc(50% + 400px * -0.087);">
+<div class="flex items-center gap-1.5 bg-white border border-slate-200/90 px-2.5 py-1 rounded-full shadow-sm text-xs font-medium text-slate-700 hover:scale-105 cursor-pointer transition backdrop-blur-sm">
+<span class="">💬</span>
+<span class="text-slate-600 font-semibold text-[11px]">18</span>
+</div>
+</div>
+</div>
+<!-- ORBIT TRACK INNER: 560px diameter circle, centered at bottom (left: 50%, bottom: 0), continuous counter 360-deg rotation with subtle line -->
+<div class="absolute left-1/2 bottom-0 w-[560px] h-[560px] rounded-full pointer-events-none z-20 orbit-track-inner border border-slate-200/50">
+<!-- Inner Node 1: Systems Architect Avatar (~205deg) -->
+<div class="orbit-node-inner pointer-events-auto" style="left: calc(50% + 280px * -0.906); top: calc(50% + 280px * -0.422);">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full ring-4 ring-white shadow-md overflow-hidden bg-amber-50 hover:scale-110 cursor-pointer transition border border-slate-200">
+<img alt="Systems Architect" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpwVxdaAdr5jQxAyrX2R7yEf3i9HyvOi9XH-zUHcQ7Kd5hzYmxuLrOjM-BDyYas1w44mDOB9Swh73nX1djAkcBGOVYm01o4UwEgBxNIsGwCTNKUlvMl83pghdjf3IDTI0Kb7mp_pN8YV8yUcKOhF0X1YGX6KHqLQQK0cQTzO89Eg_b2BVLTPF6s2OS2qtcMKOX0YLHSFjKCuKY8nNcvoC19V3lttLZNx_-LAo9nndIV8nnUyYGJSNpcw">
+</div>
+</div>
+<!-- Inner Node 2: GitHub Star Count Reaction pill (~230deg) -->
+<div class="orbit-node-inner pointer-events-auto" style="left: calc(50% + 280px * -0.642); top: calc(50% + 280px * -0.766);">
+<div class="flex items-center gap-1.5 bg-white border border-slate-200/90 px-2.5 py-1 rounded-full shadow-sm text-xs font-semibold text-slate-700 hover:scale-105 cursor-pointer transition backdrop-blur-sm">
+<span class="text-[#FFA62B]">⭐</span>
+<span class="text-slate-700 text-[11px]">128</span>
+</div>
+</div>
+<!-- Inner Node 3: Center Core Contributor Avatar (at 270deg - Top Center) -->
+<div class="orbit-node-inner pointer-events-auto" style="left: calc(50% + 280px * 0); top: calc(50% + 280px * -1);">
+<div class="w-10 h-10 rounded-full ring-4 ring-white shadow-md overflow-hidden bg-blue-50 hover:scale-110 cursor-pointer transition border border-[#86C5FF]/50">
+<img alt="Core Contributor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxTwtncQByY4u50TW-8-NX_mQy4A54S3FYz0praV7vdS8ww6oogz4Y5tR0ZQB3YRyVeQgmcquP7s-Lu3PoavFNQXrU8aYG4630LwyoFcmThqsLSisC39PVqJFY3x3bsVARGiG_HVKAKu6NMaw09EZrV4nSuROLlFfisA7xx2Mb1OOtshLkkxsbjQ2s30P_J0a9Xf1YRXB0Q_HPTxGXeRX--Y2fnA4XBfycF01Su2u7RTjCtVWlOTEfLg">
+</div>
+</div>
+<!-- Inner Node 4: Terminal / Code icon badge (~300deg) -->
+<div class="orbit-node-inner pointer-events-auto" style="left: calc(50% + 280px * 0.5); top: calc(50% + 280px * -0.866);">
+<div class="flex items-center justify-center w-8 h-8 rounded-xl bg-white border border-slate-200/90 shadow-sm text-xs hover:scale-105 cursor-pointer transition backdrop-blur-sm text-[#2E5AA7] font-mono font-bold">
+        &lt;/&gt;
+      </div>
+</div>
+<!-- Inner Node 5: Green Checkmark badge (~330deg) -->
+<div class="orbit-node-inner pointer-events-auto" style="left: calc(50% + 280px * 0.866); top: calc(50% + 280px * -0.5);">
+<div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E8F5E9] border border-[#C8E6C9] flex items-center justify-center text-[#2E7D32] shadow-sm font-bold text-xs hover:scale-110 cursor-default transition">
+        ✓
+      </div>
+</div>
+</div>
+</div>
+<!-- Central Steady Key Metric Counters: Completely free from mask-image, 100% opacity, crisp z-30 -->
+<div class="relative z-30 flex items-center justify-center gap-8 sm:gap-14 md:gap-20 mb-2 sm:mb-4 pointer-events-auto select-none">
+<!-- Metric 1: 97M+ Code Reviews -->
+<div class="flex flex-col items-center text-center">
+<div class="text-3xl sm:text-4xl md:text-[42px] font-black tracking-tight text-[#0F1E38] leading-none mb-1.5">
+      97M+
+    </div>
+<div class="text-xs sm:text-sm font-semibold text-slate-600 tracking-wide">
+      Code Reviews
+    </div>
+</div>
+<!-- Metric 2: 3.5k+ Core Contributors -->
+<div class="flex flex-col items-center text-center">
+<div class="text-3xl sm:text-4xl md:text-[42px] font-black tracking-tight text-[#0F1E38] leading-none mb-1.5">
+      3.5k+
+    </div>
+<div class="text-xs sm:text-sm font-semibold text-slate-600 tracking-wide">
+      Core Contributors
+    </div>
+</div>
+<!-- Metric 3: $2M+ Bounties Awarded -->
+<div class="flex flex-col items-center text-center">
+<div class="text-3xl sm:text-4xl md:text-[42px] font-black tracking-tight text-[#0F1E38] leading-none mb-1.5">
+      $2M+
+    </div>
+<div class="text-xs sm:text-sm font-semibold text-slate-600 tracking-wide">
+      Bounties Awarded
+    </div>
+</div>
+</div></div>
+<!-- Main Headline below the trajectory arc (Pivoted to Developers & Builders) -->
+<div class="text-center max-w-2xl mt-8 sm:mt-10 mb-8 sm:mb-10">
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F1E38] tracking-tight leading-snug text-balance">
+        We Build The Best Communities For Developers
+      </h2>
+</div>
+<!-- Pill Navigation / Tag Badges (Developer Focused) -->
+<div class="flex flex-wrap items-center justify-center gap-3 w-full max-w-2xl">
+<!-- Tag 1: Open Source -->
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white hover:border-[#86C5FF] hover:bg-slate-50 shadow-sm transition-all cursor-pointer text-xs sm:text-sm font-medium text-slate-700">
+<svg class="w-4 h-4 text-[#2E5AA7]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polyline points="16 18 22 12 16 6"></polyline>
+<polyline points="8 6 2 12 8 18"></polyline>
+</svg>
+<span class="">Open Source</span>
+</div>
+<!-- Tag 2: Dev Tooling -->
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white hover:border-[#86C5FF] hover:bg-slate-50 shadow-sm transition-all cursor-pointer text-xs sm:text-sm font-medium text-slate-700">
+<svg class="w-4 h-4 text-[#FFA62B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+</svg>
+<span class="">Dev Tooling</span>
+</div>
+<!-- Tag 3: Web3 & AI -->
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white hover:border-[#86C5FF] hover:bg-slate-50 shadow-sm transition-all cursor-pointer text-xs sm:text-sm font-medium text-slate-700">
+<svg class="w-4 h-4 text-[#2E5AA7]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+<span class="">Web3 &amp; AI</span>
+</div>
+<!-- Tag 4: Peer Code Review -->
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white hover:border-[#86C5FF] hover:bg-slate-50 shadow-sm transition-all cursor-pointer text-xs sm:text-sm font-medium text-slate-700">
+<svg class="w-4 h-4 text-[#FFA62B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+<span class="">Peer Code Review</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Our Network Section -->
+<!-- BEGIN: Sleek Mediterranean Light Footer -->
+<section class="relative z-30 w-full py-20 md:py-24 border-t border-slate-200/80 bg-white" id="query-support">
+<div class="max-w-4xl mx-auto px-6">
+<!-- Header / Eyebrow Info -->
+<div class="text-center max-w-2xl mx-auto mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[11px] font-bold uppercase tracking-wider text-[#2E5AA7] mb-3">
+<span class="w-2 h-2 rounded-full bg-[#2E5AA7] animate-pulse"></span>
+        Query &amp; Support
+      </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[#0F1E38] tracking-tight leading-tight">
+        Have a Query? Let's Connect.
+      </h2>
+<p class="mt-3 text-sm sm:text-base text-[#4A5D78] leading-relaxed">
+        Reach out with questions about hackathons, developer grants, partnerships, or underground membership.
+      </p>
+</div>
+<!-- Main Query Card inspired by Image 3 -->
+<div class="max-w-2xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-xl p-6 sm:p-8 backdrop-blur-md relative">
+<!-- Top Card Actions: Dismiss / Clear -->
+<div class="flex items-center justify-between pb-5 mb-6 border-b border-slate-100">
+<div class="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-slate-800 transition cursor-pointer">
+<span class="text-base leading-none">×</span>
+<span class="">Hide Details</span>
+</div>
+<button class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#2E5AA7] transition cursor-pointer" onclick="document.getElementById('inquiry-form').reset();" type="button">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"></path>
+</svg>
+<span class="">Clear Form</span>
+</button>
+</div>
+<!-- The Interactive Query Form -->
+<form class="space-y-4" id="inquiry-form" onsubmit="event.preventDefault(); alert('Query submitted successfully!');">
+<!-- Field 1: Category / Priority Selector (Pill styled as in UI component) -->
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2 pb-2.5 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Inquiry Category &amp; Priority</label>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 flex-1">
+<span class="px-2 py-0.5 rounded-md bg-blue-50 border border-blue-200 text-[#2E5AA7] text-xs font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E5AA7]"></span> Priority
+              </span>
+<select class="w-full bg-transparent text-sm font-semibold text-[#0F1E38] border-none p-0 focus:ring-0 cursor-pointer">
+<option disabled="" selected="" value="">Select category / issue type</option>
+<option value="hackathon">Hackathons &amp; Technical Summits</option>
+<option value="grants">Developer Grants &amp; Bounty Allocation</option>
+<option value="membership">Elite Underground Membership Access</option>
+<option value="partnership">Ecosystem Partnership &amp; Sponsorship</option>
+<option value="general">General Engineering Support</option>
+</select>
+</div>
+<span class="text-slate-400 text-xs pl-2 pointer-events-none">▼</span>
+</div>
+</div>
+<!-- Field 2: Name & Email in Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2 pb-2.5 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Your Name</label>
+<input class="w-full bg-transparent text-sm text-[#0F1E38] placeholder-slate-400 border-none p-0 focus:ring-0" placeholder="Alex Thorne" required="" type="text">
+</div>
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2 pb-2.5 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Contact Email / GitHub</label>
+<input class="w-full bg-transparent text-sm text-[#0F1E38] placeholder-slate-400 border-none p-0 focus:ring-0" placeholder="alex@collective.xyz" required="" type="email">
+</div>
+</div>
+<!-- Field 3: Timeline & Date Requirement -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2 pb-2.5 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Target Timeline</label>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 flex-1">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+<select class="w-full bg-transparent text-sm font-medium text-[#0F1E38] border-none p-0 focus:ring-0 cursor-pointer">
+<option value="immediate">Immediate (&lt; 48 hours)</option>
+<option value="upcoming">Within this month</option>
+<option value="q4">Next Quarter (Q4/Q1)</option>
+<option value="flexible">Flexible Timeline</option>
+</select>
+</div>
+<span class="text-slate-400 text-xs pl-2 pointer-events-none">▼</span>
+</div>
+</div>
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2 pb-2.5 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Project / Org</label>
+<div class="flex items-center justify-between">
+<input class="w-full bg-transparent text-sm text-[#0F1E38] placeholder-slate-400 border-none p-0 focus:ring-0" placeholder="DAO / Protocol / Studio" type="text">
+<span class="text-slate-400 text-xs pl-2 pointer-events-none">▼</span>
+</div>
+</div>
+</div>
+<!-- Field 4: Detailed Message -->
+<div class="relative rounded-xl border border-slate-200 px-3.5 pt-2.5 pb-2 bg-white hover:border-[#86C5FF] focus-within:border-[#2E5AA7] focus-within:ring-1 focus-within:ring-[#2E5AA7] transition">
+<label class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1">Query Description</label>
+<textarea class="w-full bg-transparent text-sm text-[#0F1E38] placeholder-slate-400 border-none p-0 focus:ring-0 resize-none" placeholder="Outline your requirements, questions, or collaboration proposal..." required="" rows="3"></textarea>
+</div>
+<!-- Field 5: Role & Builder Track Chips (Choose Options inspired by bottom filters in Image 3) -->
+<div class="pt-1">
+<span class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Select Your Builder Track</span>
+<div class="flex flex-wrap gap-2">
+<label class="cursor-pointer">
+<input class="sr-only peer" name="track" type="checkbox" value="core-builder">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Core Builder</span>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="track" type="checkbox" value="hackathon-participant">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Hackathon Participant</span>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="track" type="checkbox" value="open-source">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Open Source Maintainer</span>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="track" type="checkbox" value="grant-applicant">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Grant Applicant</span>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="track" type="checkbox" value="event-partner">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Event Partner</span>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="track" type="checkbox" value="sponsor">
+<span class="inline-block px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-700 peer-checked:bg-[#2E5AA7] peer-checked:text-white peer-checked:border-[#2E5AA7] transition shadow-sm hover:border-slate-300">Sponsor / Investor</span>
+</label>
+</div>
+</div>
+<!-- Submit Button matching Deep Blue / Navy High-contrast button in Image 3 -->
+<div class="pt-3">
+<button class="w-full py-3.5 px-6 rounded-xl bg-[#0F1E38] hover:bg-[#2E5AA7] text-white font-bold text-sm tracking-wide transition-all duration-200 shadow-md flex items-center justify-center gap-2 group cursor-pointer" type="submit">
+<span class="">Submit Query</span>
+<span class="group-hover:translate-x-1 transition-transform">→</span>
+</button>
+<div class="text-center mt-2.5">
+<span class="text-[11px] text-slate-500 font-medium">Responses typically provided within 24 hours by collective core leads.</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section><footer class="relative z-30 w-full border-t border-slate-200 backdrop-blur-md pt-8 pb-8 bg-white" style="padding-top: 48px; padding-bottom: 40px;">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-slate-200">
+<!-- Brand & Mission -->
+<div class="text-center md:text-left">
+<a class="flex items-center justify-center md:justify-start gap-1 mb-3" href="#">
+<span class="text-xl font-extrabold tracking-tight text-[#0F1E38]">
+            Underground<span class="text-[#FFA62B] font-black text-2xl leading-none">.</span>
+</span>
+</a>
+<p class="text-xs text-[#60728D] max-w-sm leading-relaxed">
+          The sovereign collective for engineering pioneers, hackers, and software innovators.
+        </p>
+</div>
+<!-- Quick Nav Links -->
+<div class="flex flex-wrap items-center justify-center gap-7 text-xs font-semibold text-[#4A5D78]">
+<a class="hover:text-[#2E5AA7] transition-colors" href="#community">Community</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#events">Events</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#about">About</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#">Manifesto</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#">Security</a>
+</div>
+<!-- Social & Community Links -->
+<div class="flex items-center gap-4 text-[#60728D]">
+<!-- GitHub -->
+<a aria-label="GitHub" class="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center hover:text-[#2E5AA7] hover:border-[#86C5FF] transition-all hover:bg-slate-100 shadow-sm" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+</a>
+<!-- X / Twitter -->
+<a aria-label="X" class="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center hover:text-[#2E5AA7] hover:border-[#86C5FF] transition-all hover:bg-slate-100 shadow-sm" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<!-- Discord -->
+<a aria-label="Discord" class="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center hover:text-[#2E5AA7] hover:border-[#86C5FF] transition-all hover:bg-slate-100 shadow-sm" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Copyright Subtext -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#94A3B8] gap-4">
+<div class="">© 2025 Underground Network, Inc. All rights reserved.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[#2E5AA7] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-[#2E5AA7] transition-colors" href="#">System Status</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Sleek Mediterranean Light Footer -->
+<!-- BEGIN: Interactive Horizon & Typographic Spotlight Reaction -->
+<script data-purpose="interactive-subtle-glow">
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 16;
+    const y = (e.clientY / window.innerHeight - 0.5) * 12;
+    const dome = document.querySelector('.glowing-dome-container');
+    if (dome) {
+      dome.style.transform = `translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
+    }
+  });
+
+  // Cursor-confined outline highlight: ONLY stroke under pointer lights up at max 50% opacity, fill remains transparent, no background glow
+  const brandSection = document.querySelector('.interactive-brand-section');
+  const svgText = document.getElementById('underground-svg');
+  const illuminatedOverlay = document.getElementById('underground-single-text');
+  const maskHole = document.getElementById('maskCursorHole');
+  const maskRadialAlpha = document.getElementById('maskRadialAlpha');
+
+  if (brandSection && svgText && illuminatedOverlay && maskHole) {
+    brandSection.addEventListener('mousemove', (e) => {
+      const rect = svgText.getBoundingClientRect();
+      const scaleX = 1600 / rect.width;
+      const scaleY = 400 / rect.height;
+      const svgX = (e.clientX - rect.left) * scaleX;
+      const svgY = (e.clientY - rect.top) * scaleY;
+
+      maskHole.setAttribute('cx', svgX);
+      maskHole.setAttribute('cy', svgY);
+      if (maskRadialAlpha) {
+        maskRadialAlpha.setAttribute('cx', svgX);
+        maskRadialAlpha.setAttribute('cy', svgY);
+      }
+
+      illuminatedOverlay.style.opacity = '1';
+    });
+
+    brandSection.addEventListener('mouseleave', () => {
+      maskHole.setAttribute('cx', '-3000');
+      maskHole.setAttribute('cy', '-3000');
+      if (maskRadialAlpha) {
+        maskRadialAlpha.setAttribute('cx', '-3000');
+        maskRadialAlpha.setAttribute('cy', '-3000');
+      }
+      illuminatedOverlay.style.opacity = '0';
+    });
+  }
+</script>
+<!-- END: Interactive Horizon & Typographic Spotlight Reaction -->
+
+
+</body></html>
